@@ -1,0 +1,17 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: python-app-cluster
+  region: ap-south-1
+
+managedNodeGroups:
+  - name: ng-1
+    instanceType: t3.micro
+    desiredCapacity: 3
+    minSize: 2
+    maxSize: 3
+    volumeSize: 80
+    ssh:
+      allow: true
+      publicKeyPath: ~/.ssh/id_ed25519.pub

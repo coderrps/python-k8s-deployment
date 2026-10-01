@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+  labels:
+    app: python-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+      - name: python-container
+        image: public.ecr.aws/v2n1v6c7/python-app:latest
+        ports:
+        - containerPort: 5000
